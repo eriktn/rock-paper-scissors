@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rock Paper Scissors - Game</title>
+</head>
+<body>
+    <script>
+        console.log("type \"game()\" to start the game")
+        function computerPlay() {
+            let num = Math.floor(Math.random()*3)+1
+            if (num==1) return "rock";
+            else if(num==2) return "paper";
+            else return "scissors";
+        }
+        function getResult(player,computer) {
+
+            if (player.toLowerCase()=="rock") {
+                if(computer== "rock") return "Draw, both of you chose rock";
+                else if(computer== "paper") return "You lose, paper beats rock";
+                else return "You win, rock beats scissors";
+            }
+            if (player.toLowerCase()=="paper") {
+                if(computer== "rock") return "You win, paper beats rock";
+                else if(computer== "paper") return "Draw, both of you chose paper";
+                else return "You lose, scissors beat paper";
+            }
+            if (player.toLowerCase()=="scissors") {
+                if(computer== "rock") return "You lose, rock beats scissors";
+                else if(computer== "paper") return "You win, scissors beat paper";
+                else return "Draw, both of you chose scissors";
+            }           
+        }
+        function game() {
+        for(let i=0;i<5;i++) {
+        let playerMove = prompt("Chose among rock, paper and scissors");
+        let computerMove = computerPlay();
+        console.log("Player: " + playerMove);
+        console.log("Computer: " + computerMove);
+        console.log(getResult(playerMove,computerMove));
+        }
+    }
+    </script>
+</body>
+</html>
